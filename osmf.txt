@@ -10,7 +10,7 @@ This file is designed to be transferred over the internet, by an OpenSuspect ser
 As of version 0.1, this format is used for transferring map data ONLY. Game code, tasks, and sound files are not supported as of yet.
 Maps are defined by a series of .png image files, which are translated by the client into a working map. Map metadata is contained in "manifest.json".
 PNG is used as a format, as it is easy to modify, and visualise for novice map makers. This works towards OpenSuspect's goal of easy customisability.
-(See "map_image_lookup.svg" for the colour grid)
+(See "colour_grid.png" for the colour grid)
 
 THE SPECIFICATION (Ver 0.1.1):
 ------------------
