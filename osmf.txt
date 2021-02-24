@@ -1,8 +1,8 @@
-OpenSuspect Map File Specification Ver 0.1
+OpenSuspect Map File Specification Ver 0.1.1
 By Moxvallix for OpenSuspect
 Based on the png map concept by Damjan94
 
-The OpenSuspect Map File, or OSMF, is a compressed (tar.gz) folder, containing the relevent assets for an OpenSuspect Map.
+The OpenSuspect Map File, or OSMF, is a compressed (tar.zst) folder, containing the relevent assets for an OpenSuspect Map.
 The OSMF has the file extension ".osmf".
 
 This file is designed to be transferred over the internet, by an OpenSuspect server to an OpenSuspect client, in order to display a custom map.
@@ -12,7 +12,7 @@ Maps are defined by a series of .png image files, which are translated by the cl
 PNG is used as a format, as it is easy to modify, and visualise for novice map makers. This works towards OpenSuspect's goal of easy customisability.
 (See "map_image_lookup.svg" for the colour grid)
 
-THE SPECIFICATION (Ver 0.1):
+THE SPECIFICATION (Ver 0.1.1):
 ------------------
 
 Folder structure:
@@ -47,25 +47,25 @@ Folder structure:
 
 "map_data" File details:
     base_tiles.png:
-    Use: Tilemap for the base layer tiles.
-    Dimensions: 1200x800px
-    Tile Dimensions: 100x100px
-    Tile Amount: 96 total (84 wall tiles and 12 floor tiles)
-    Note: The image is split up into a grid of 100x100px, each cell assigned a unique colour. These colours are referenced by "base_layout.png".
+        Use: Tilemap for the base layer tiles.
+        Dimensions: 1200x800px
+        Tile Dimensions: 100x100px
+        Tile Amount: 96 total (84 wall tiles and 12 floor tiles)
+        Note: The image is split up into a grid of 100x100px, each cell assigned a unique colour. These colours are referenced by "base_layout.png".
 
     detail_tiles.png:
-    Use: Tilemap for the detail layer tiles.
-    Dimensions: 1200x800px
-    Tile Dimensions: 100x100px
-    Tile Amount: 96 total
-    Note: The image is split up into a grid of 100x100px, each cell assigned a unique colour. These colours are referenced by "detail_layout.png".
+        Use: Tilemap for the detail layer tiles.
+        Dimensions: 1200x800px
+        Tile Dimensions: 100x100px
+        Tile Amount: 96 total
+        Note: The image is split up into a grid of 100x100px, each cell assigned a unique colour. These colours are referenced by "detail_layout.png".
 
     base_layout.png:
-    Use: Defines the map layout for the base layer.
-    Dimensions: Custom, 1 pixel per tile.
-    Note: Each pixel determines the location of a tile, based on it's colour. The tile in #FF0000 for example, will appear for each pixel of #FF0000, in it's location relative to each other tile. Transparency counts as a blank tile, and is left as a blank gap in map generation.
+        Use: Defines the map layout for the base layer.
+        Dimensions: Custom, 1 pixel per tile.
+        Note: Each pixel determines the location of a tile, based on it's colour. The tile in #FF0000 for example, will appear for each pixel of #FF0000, in it's location relative to each other tile. Transparency counts as a blank tile, and is left as a blank gap in map generation.
 
     detail_layout.png:
-    Use: Defines the map layout for the detail layer.
-    Dimensions: Custom, 1 pixel per tile. (Size must match 
-    Note: Each pixel determines the location of a tile, based on it's colour. The tile in #FF0000 for example, will appear for each pixel of #FF0000, in it's location relative to each other tile. Transparency counts as a blank tile, and is left as a blank gap in map generation.
+        Use: Defines the map layout for the detail layer.
+        Dimensions: Custom, 1 pixel per tile. (Size must match 
+        Note: Each pixel determines the location of a tile, based on it's colour. The tile in #FF0000 for example, will appear for each pixel of #FF0000, in it's location relative to each other tile. Transparency counts as a blank tile, and is left as a blank gap in map generation.
