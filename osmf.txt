@@ -1,0 +1,71 @@
+OpenSuspect Map File Specification Ver 0.1
+By Moxvallix for OpenSuspect
+Based on the png map concept by Damjan94
+
+The OpenSuspect Map File, or OSMF, is a compressed (tar.gz) folder, containing the relevent assets for an OpenSuspect Map.
+The OSMF has the file extension ".osmf".
+
+This file is designed to be transferred over the internet, by an OpenSuspect server to an OpenSuspect client, in order to display a custom map.
+
+As of version 0.1, this format is used for transferring map data ONLY. Game code, tasks, and sound files are not supported as of yet.
+Maps are defined by a series of .png image files, which are translated by the client into a working map. Map metadata is contained in "manifest.json".
+PNG is used as a format, as it is easy to modify, and visualise for novice map makers. This works towards OpenSuspect's goal of easy customisability.
+(See "map_image_lookup.svg" for the colour grid)
+
+THE SPECIFICATION (Ver 0.1):
+------------------
+
+Folder structure:
+    <map_name.osmf>
+    |-- manifest.json
+    |-- map_data
+        |-- base_tiles.png
+        |-- detail_tiles.png
+        |-- base_layout.png
+        |-- detail_layout.png
+        
+"manifest.json" File details:
+    Use: Provides metadata for the custom map, including author information, and spawn tiles.
+    Layout (JSON):
+        {
+        "map_name": "Example Map",
+        "author": "Placey the Alien",
+        "contact": "placey@opensuspect.com",
+        "map_version": 1,
+        "osmf": 0.1,
+        
+        "map_layout": {
+            "map_folder": "map_data",
+            "spawn_tiles": [
+            "#ff0000",
+            "#ff2a2a",
+            "#ff5555"
+            ]
+          }
+        }
+    Note: Spawn tiles are as an array of valid tiles for the map to spawn players on, based on their colour defined in the array.
+
+"map_data" File details:
+    base_tiles.png:
+    Use: Tilemap for the base layer tiles.
+    Dimensions: 1200x800px
+    Tile Dimensions: 100x100px
+    Tile Amount: 96 total (84 wall tiles and 12 floor tiles)
+    Note: The image is split up into a grid of 100x100px, each cell assigned a unique colour. These colours are referenced by "base_layout.png".
+
+    detail_tiles.png:
+    Use: Tilemap for the detail layer tiles.
+    Dimensions: 1200x800px
+    Tile Dimensions: 100x100px
+    Tile Amount: 96 total
+    Note: The image is split up into a grid of 100x100px, each cell assigned a unique colour. These colours are referenced by "detail_layout.png".
+
+    base_layout.png:
+    Use: Defines the map layout for the base layer.
+    Dimensions: Custom, 1 pixel per tile.
+    Note: Each pixel determines the location of a tile, based on it's colour. The tile in #FF0000 for example, will appear for each pixel of #FF0000, in it's location relative to each other tile. Transparency counts as a blank tile, and is left as a blank gap in map generation.
+
+    detail_layout.png:
+    Use: Defines the map layout for the detail layer.
+    Dimensions: Custom, 1 pixel per tile. (Size must match 
+    Note: Each pixel determines the location of a tile, based on it's colour. The tile in #FF0000 for example, will appear for each pixel of #FF0000, in it's location relative to each other tile. Transparency counts as a blank tile, and is left as a blank gap in map generation.
